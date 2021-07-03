@@ -1,0 +1,181 @@
+/* TODO : CSS파일을 편집하여 원하는 스타일의 계산기를 만들어보세요 :) */
+
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  box-sizing: border-box;
+  font-family: "Arial", cursive;
+  color: #000;
+}
+
+body {
+  background-image: url("./data/codestates-motif.png");
+}
+
+html, body{
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  Calculator styles
+*/
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator {
+  background-color: rgb(245, 219, 20);
+  width: 350px;
+  height: 500px;
+  border-radius: 10px;
+  padding: 2px 10px 0px 10px;
+  border: solid 6px #ffcd03;
+  border-bottom: solid 6px #fab608;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.calculator__display--bare {
+  display: none;
+  background-color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  height: 100px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 25px 15px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.calculator__display--bare > span {
+  text-align: center;
+  background-color: #f3f0fc;
+  margin: 5px;
+  width: 40px;
+  height: 45px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 5px;
+}
+
+.calculator__display--for-advanced {
+  /* 이 줄을 모두 지우면 advanced 테스트를 하실 수 있습니다. */
+  /* display: none;   */  
+  height: 100px;
+  width: 100%;
+  border-radius: 10px;  
+  text-align: center;
+  vertical-align: middle;
+  padding: 25px 15px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  /*CSS 효과 추가*/
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: #e0dfdc;
+  background-color: #333;
+  letter-spacing: .1em;
+  font-size: 35px;
+  text-shadow: 
+    0 -1px 0 #fff, 
+    0 1px 0 #2e2e2e, 
+    0 2px 0 #2c2c2c, 
+    0 3px 0 #2a2a2a, 
+    0 4px 0 #282828, 
+    0 5px 0 #262626, 
+    0 6px 0 #242424, 
+    0 7px 0 #222, 
+    0 8px 0 #202020, 
+    0 9px 0 #1e1e1e, 
+    0 10px 0 #1c1c1c, 
+    0 11px 0 #1a1a1a, 
+    0 12px 0 #181818, 
+    0 13px 0 #161616, 
+    0 14px 0 #141414, 
+    0 15px 0 #121212, 
+    0 22px 30px rgba(0, 0, 0, 0.9);
+}  
+
+.calculator__buttons {
+  background-color: #ffffff;
+  width: 100%;
+  height: 330px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.clear__and__enter {
+  height: 50px;
+  margin: 10px;
+  background-color: #f3f0fc;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.clear__and__enter > button {
+  border-radius: 10px;
+  width: 105px;
+  height: 48px;
+  /* margin: 0px 5px; */
+  background-color: rgb(218, 140, 6);
+  cursor: pointer;
+  outline: none;
+  color:rgb(255, 255, 255);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(57, 15, 0);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.button__row {  
+  height: 50px;
+  margin: 10px;
+  background-color: #f3f0fc;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  padding-top: 5px;
+}
+
+.button__row > button {  
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bolder;
+  background-color: #ffb700;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.button__row > .operator {
+  color: #ffffff;
+  background-color: #313132;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.button__row > .double {
+  width: 105px;
+}
+
+.logo {
+  position: fixed;
+  padding: 30px;
+  bottom: 0px;
+  right: 0px;
+}
+
+/*여기서부터 추가한 코드입니다.*/
+.clear__and__enter button:active,
+.calculator__buttons button:active {
+  transform: scale(0.9);
+  background-color: #00da75;
+}
+
+/*타이포 효과*/
+/* test */
