@@ -3,5 +3,4 @@ function myConcat(separator) {
   return args.join(separator);
 }
 
-
 console.log(myConcat(".", "1", "2", "3"));
