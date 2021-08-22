@@ -1,6 +1,3 @@
-//'use strict'
-// hosting : var, fuction declaration
-
 //Synchronus callback
 function printImmediately(print){
   print();
