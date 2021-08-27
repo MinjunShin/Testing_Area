@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Review</title>
+    <meta charset="UTF-8" />
+    <style>
+      li {
+        list-style: none;
+      }
+      span {
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul class="city-list"></ul>
+    </div>
+    <script>
+      const places = [
+        {
+          id: 1,
+          city: "Biloxi",
+          country: "United States",
+          address: "Walton"
+        },
+        {
+          id: 2,
+          city: "Carmen de Viboral",
+          country: "Colombia",
+          address: "Drewry"
+        },
+        {
+          id: 3,
+          city: "New Mīrpur",
+          country: "Pakistan",
+          address: "Morningstar"
+        },
+        {
+          id: 4,
+          city: "Seropédica",
+          country: "Brazil",
+          address: "Parkside"
+        },
+        {
+          id: 5,
+          city: "Ponjen",
+          country: "Indonesia",
+          address: "Gina"
+        }
+      ];
+      const city_list = document.querySelector(".city-list");
+      const showPlaces = places.forEach((el) => {
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        const div1 = document.createElement("div");
+        const div2 = document.createElement("div");
+        const p = document.createElement("p");
+        city_list.append(li),
+          li.append(span),
+          (span.innerText = `${el.country}`),
+          li.append(div1),
+          (div1.innerText = `City : ${el.city}`);
+        div1.append(div2), (div2.innerText = `County : ${el.country}`);
+        city_list.append(p);
+      });
+    </script>
+  </body>
+</html>
